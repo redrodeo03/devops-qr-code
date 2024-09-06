@@ -6,10 +6,9 @@ jobs:
   publish_images:
     runs-on: ubuntu-latest
     steps:
-      -name: checkout
-       uses: actions/checkout@v4
-      -name: build image
-       run: docker build ./api/ -t redrodeo/qr-cloud-api:latest
-      -name: push image to docker hub
-       run: |
+    - uses: actions/checkout@v
+    -name: build image
+      run: docker build ./api/ -t redrodeo/qr-cloud-api:latest
+    -name: push image to docker hub
+      run: |
         docker push redrodeo/qr-cloud-api:latest
